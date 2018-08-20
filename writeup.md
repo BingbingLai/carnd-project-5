@@ -15,12 +15,15 @@ The goals / steps of this project are the following:
 [image2]: ./writeup-images/hog-examples.png
 [image3]: ./writeup-images/accuracy.png
 [image4]: ./writeup-images/find-car.png
+[image5]: ./writeup-images/find-car-2.png
+
+[image6]: ./examples/sliding_window.jpg
+[image7]: ./examples/bboxes_and_heat.png
+[image8]: ./examples/labels_map.png
+[image9]: ./examples/output_bboxes.png
 
 
-[image4]: ./examples/sliding_window.jpg
-[image5]: ./examples/bboxes_and_heat.png
-[image6]: ./examples/labels_map.png
-[image7]: ./examples/output_bboxes.png
+
 [video1]: ./project_video.mp4
 
 
@@ -85,13 +88,16 @@ check code @ `In [230]` in this [notebook](https://github.com/BingbingLai/carnd-
 - used windows scale 64 and 64 and overlap 0.5
 - also use another sliding window techinique `find_car` @ `In [270]`
 
-![alt text][image]
+![alt text][image5]
+
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
 Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
 ![alt text][image4]
+![alt text][image5]
+
 ---
 
 ### Video Implementation
@@ -108,10 +114,9 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 ### Here are six frames and their corresponding heatmaps:
 
-![alt text][image5]
 
-### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
-![alt text][image6]
+
+![alt text][image7]
 
 ### Here the resulting bounding boxes are drawn onto the last frame in the series:
 ![alt text][image7]
@@ -124,5 +129,9 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+- had hard time implementing it:
+- each training takes >5 minutes, slow feedback loop
+- wasted tons of hours debugging stupid issues
+- shadowing was hard to detect
+- requires a lot of parameter tuning
 
